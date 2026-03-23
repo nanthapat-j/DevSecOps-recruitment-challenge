@@ -1,0 +1,31 @@
+title = "Custom Gitleaks config for FlowAccount exam"
+
+[[rules]]
+id = "flowaccount-aws-key"
+description = "AWS Access Key ID"
+regex = '''AKIA[A-Za-z0-9_]{10,}'''
+keywords = ["akia"]
+
+[[rules]]
+id = "flowaccount-aws-secret"
+description = "AWS Secret Access Key"
+regex = '''(?i)secretAccessKey\s*[:=]\s*["'][^"']{10,}["']'''
+keywords = ["secretaccesskey"]
+
+[[rules]]
+id = "flowaccount-stripe-key"
+description = "Stripe Secret Key"
+regex = '''(?i)stripe[_\-]?(?:live[_\-]?)?(?:key|secret)[_\-]?\w{10,}'''
+keywords = ["stripe"]
+
+[[rules]]
+id = "flowaccount-stripe-webhook"
+description = "Stripe Webhook Secret"
+regex = '''(?i)whsec[_\-]\w{10,}'''
+keywords = ["whsec"]
+
+[[rules]]
+id = "flowaccount-db-password"
+description = "Database Password"
+regex = '''(?i)password\s*[:=]\s*["'][^"']{8,}["']'''
+keywords = ["password"]
